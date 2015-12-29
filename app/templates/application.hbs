@@ -1,3 +1,35 @@
-<h2 id="title">Welcome to Ember</h2>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      {{link-to "R Package Manager" "package-list" class="navbar-brand"}}
+      {{!-- <a class="navbar-brand" href="#">R Package Manager</a> --}}
+    </div>
 
-{{outlet}}
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        {{#bs-dropdown tagName="li"}}
+          {{#bs-dropdown-toggle}}Dropdown <span class="caret"></span>{{/bs-dropdown-toggle}}
+          {{#bs-dropdown-menu}}
+            <li>{{link-to "Something" "index"}}</li>
+            <li>{{link-to "Something Else" "index"}}</li>
+          {{/bs-dropdown-menu}}
+        {{/bs-dropdown}}
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container">
+  {{outlet}}
+</div>
