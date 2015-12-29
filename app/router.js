@@ -7,6 +7,9 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('package-list', function() {
+    this.route('pkg-info', {
+      path: ':pkgName'
+    });
   });
 });
 
