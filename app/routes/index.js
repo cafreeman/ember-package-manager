@@ -2,6 +2,6 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   beforeModel() {
-    this.transitionTo('package-list');
+    this.transitionTo('packages');
   }
 });
