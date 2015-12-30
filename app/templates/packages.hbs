@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="list-group">
+      {{#each model as |pkg|}}
+        {{#link-to "packages.pkg-info" pkg.name class="list-group-item"}}
+          {{pkg.name}}
+        {{/link-to}}
+      {{/each}}
+    </div>
+  </div>
+  <div class="col-md-8">
+    {{outlet}}
+  </div>
+</div>

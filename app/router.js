@@ -11,6 +11,11 @@ Router.map(function() {
       path: ':pkgName'
     });
   });
+  this.route('packages', function() {
+    this.route('pkg-info', {
+      path: ':pkgName'
+    });
+  });
 });
 
 export default Router;
