@@ -2,8 +2,9 @@
   <div class="col-md-4">
     <div class="list-group">
       {{#each model as |pkg|}}
-        {{#link-to "packages.pkg-info" pkg.name class="list-group-item"}}
+        {{#link-to "packages.pkg-info" pkg.id class="list-group-item"}}
           {{pkg.name}}
+          {{pkg.id}}
         {{/link-to}}
       {{/each}}
     </div>
