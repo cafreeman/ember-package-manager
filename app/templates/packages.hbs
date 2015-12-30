@@ -4,7 +4,6 @@
       {{#each model as |pkg|}}
         {{#link-to "packages.pkg-info" pkg.id class="list-group-item"}}
           {{pkg.name}}
-          {{pkg.id}}
         {{/link-to}}
       {{/each}}
     </div>
