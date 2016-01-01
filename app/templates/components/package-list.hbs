@@ -1,4 +1,4 @@
-{{input value=query}}
+{{bs-input value=query placeholder="Filter packages"}}
 <div class="list-group">
   {{#each filteredPkgs as |pkg|}}
   {{#link-to "packages.pkg-info" pkg.id class="list-group-item"}}
