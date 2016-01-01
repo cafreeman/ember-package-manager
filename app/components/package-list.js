@@ -6,8 +6,13 @@ export default Ember.Component.extend({
       return pkg.get('name').match(this.get('query'));
     });
   }),
-  keyPress: function(event) {
-    // if event.charCode == charCode for 'Enter' then get the first element from filtered packages and transition to that ID
-    debugger;
+  keyPress(event) {
+    // trigger the onEnter action when the user hits enter in the search box
+    if (event.keyCode === 13) {
+      // get the first element in the package list
+      let first = this.get('filteredPkgs')[0];
+      // call the closure action passed into onEnter in the parent template
+      this.get('onEnter')(first.id);
+    }
   }
 });
