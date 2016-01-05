@@ -1,4 +1,10 @@
-{{bs-input value=query placeholder="Filter packages"}}
+<div class="input-group">
+  {{bs-input value=query placeholder="Filter packages"}}
+  <div class="input-group-btn">
+    {{bs-button type="primary" icon="fa fa-search" action="search"}}
+  </div>
+</div>
+{{!-- {{search-box items=filteredPkgs}} --}}
 <div class="list-group">
   {{#each filteredPkgs as |pkg|}}
   {{#link-to "packages.pkg-info" pkg.id class="list-group-item"}}

@@ -6,13 +6,21 @@ export default Ember.Component.extend({
       return pkg.get('name').match(this.get('query'));
     });
   }),
+  showTopResult() {
+    // get the first element in the package list
+    let first = this.get('filteredPkgs')[0];
+    // call the closure action passed into the search attribute in the parent template
+    this.get('onSearch')(first.id);
+  },
   keyPress(event) {
-    // trigger the onEnter action when the user hits enter in the search box
+    // call the showTopResult method when the user hits enter in the search box
     if (event.keyCode === 13) {
-      // get the first element in the package list
-      let first = this.get('filteredPkgs')[0];
-      // call the closure action passed into onEnter in the parent template
-      this.get('onEnter')(first.id);
+      this.showTopResult();
+    }
+  },
+  actions: {
+    search() {
+      this.showTopResult();
     }
   }
 });
