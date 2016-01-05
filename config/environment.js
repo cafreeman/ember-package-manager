@@ -4,6 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'package-manager',
     environment: environment,
+    firebase: 'https://alteryx-rpm.firebaseio.com/',
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
