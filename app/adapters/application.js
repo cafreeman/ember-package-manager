@@ -1,11 +1,8 @@
-import DS from 'ember-data';
+import Ember from 'ember';
+import FirebaseAdapter from 'emberfire/adapters/firebase';
 
-export default DS.JSONAPIAdapter.extend({
-  findAll() {
-    let baseURL = 'https://api.github.com/repos/AlteryxLabs/package-list/contents/jsonAPIPackage.json';
-    return $.getJSON(baseURL)
-      .then((data) => {
-        return $.getJSON(data.download_url);
-      });
-  }
+const { inject } = Ember;
+
+export default FirebaseAdapter.extend({
+  firebase: inject.service(),
 });
