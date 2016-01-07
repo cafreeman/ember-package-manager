@@ -11,6 +11,7 @@ Router.map(function() {
       path: ':id'
     });
   });
+  this.route('add-package');
 });
 
 export default Router;

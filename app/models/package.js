@@ -6,6 +6,7 @@ export default DS.Model.extend({
   title: DS.attr('string'),
   description: DS.attr('string'),
   publicationDate: DS.attr('date'),
-  depends: DS.attr(),
-  imports: DS.attr()
+  // depends: DS.attr(),
+  // imports: DS.attr(),
+  lastUpdated: DS.attr('date')
 });
