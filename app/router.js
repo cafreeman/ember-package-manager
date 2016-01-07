@@ -12,6 +12,7 @@ Router.map(function() {
     });
   });
   this.route('add-package');
+  this.route('package-search');
 });
 
 export default Router;
