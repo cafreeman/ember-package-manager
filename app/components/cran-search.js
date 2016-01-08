@@ -26,7 +26,7 @@ export default Ember.Component.extend({
       resolve(results.map((pkg) => {
         return {
           name: pkg._id,
-          description: pkg._source.Description
+          title: pkg._source.Title
         };
       }));
     }, (err) => {
