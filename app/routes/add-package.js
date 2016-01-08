@@ -11,7 +11,17 @@ export default Ember.Route.extend({
         publicationDate: new Date(this.controller.get('publicationDate').split('-')),
         lastUpdated: new Date()
       });
-      newPackage.save();
+      newPackage.save().then(() => {
+        this.controller.setProperties({
+          name: '',
+          version: '',
+          title: '',
+          description: '',
+          publicationDate: '',
+          lastUpdated: ''
+        });
+        this.transitionTo('packages');
+      });
     }
   }
 });
