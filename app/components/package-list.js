@@ -21,6 +21,9 @@ export default Ember.Component.extend({
   actions: {
     search() {
       this.showTopResult();
+    },
+    clearSearchBox() {
+      this.set('query', '');
     }
   }
 });
