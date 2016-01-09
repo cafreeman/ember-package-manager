@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  cart: Ember.inject.service('package-cart'),
+
   // currentPkg is the `selected` property for `power-select`
   currentPkg: '',
 
@@ -41,10 +43,13 @@ export default Ember.Component.extend({
         Ember.run.debounce(this, this._performCRANSearch, query, resolve, reject, 500);
       });
     },
-    // update is the `onchange` action called from `power-select` and simply puts the selected
-    // search result in the top level of the search box
+    // update is the `onchange` action called from `power-select` and has two responsibilities:
+      // 1. puts the selected search result in the top level of the search box
+      // 2. adds the result to the `package-cart` service store, thereby instantiating an instance
+        // of the `package-cart-item` component
     update(selected) {
       this.set('currentPkg', selected);
+      this.get('cart').add(selected.name);
     }
   }
 });

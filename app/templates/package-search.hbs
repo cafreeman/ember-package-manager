@@ -1,1 +1,13 @@
-{{cran-search packageList=model}}
+<div class="row">
+  <div class="col-md-6">
+    {{cran-search packageList=model}}
+  </div>
+  <div class="col-md-6">
+    <div class="list-group package-cart-list">
+      {{#each model as |pkg|}}
+        {{package-cart-item item=pkg}}
+      {{/each}}
+    </div> <!-- /list-group -->
+    {{!-- {{outlet}} --}}
+  </div>
+</div>

@@ -1,3 +1,3 @@
-{{#power-select selected=currentPkg search=(action "searchCRAN") onchange=(action (mut currentPkg)) as |pkg|}}
+{{#power-select selected=currentPkg search=(action "searchCRAN") onchange=(action "update") as |pkg|}}
   <h4>{{pkg.name}} <small>{{pkg.title}}</small></h4>
 {{/power-select}}
