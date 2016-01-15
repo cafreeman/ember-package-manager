@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Service.extend({
+  store: Ember.inject.service(),
+
   packagesToAdd: [],
 
   add(pkg) {
@@ -12,16 +14,21 @@ export default Ember.Service.extend({
   },
 
   // check should implement validation logic when manipulating the package store, for example:
-    // - checking to see if the package is already installed
+    // - checking to see if the package is already installed (DONE)
     // - verifying that the package exists in the cran API
   check(pkg) {
-    console.log(`checking ${pkg}`);
+    // this will check the firebase store to see if a package of the same name already exists
+    // returns a boolean
+    return this.get('store').query('package', { orderBy: 'name', equalTo: pkg})
+      .then((matches) => {
+        return matches.get('length') > 0;
+      });
   },
 
   // clear out the packages store. this should help with handling pushes to the server since we'll
   // want to empty the store on a successful push
   empty() {
-
+    this.get('packagesToAdd').clear();
   },
 
   // push the packages in the store to the backend and persist them. not sure yet how much of this
