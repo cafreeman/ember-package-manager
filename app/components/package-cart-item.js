@@ -7,5 +7,8 @@ export default Ember.Component.extend({
     toggleMenu() {
       this.toggleProperty('isMenuToggled');
     },
+    removePackage(pkg) {
+      this.get('cart').remove(pkg);
+    },
   }
 });

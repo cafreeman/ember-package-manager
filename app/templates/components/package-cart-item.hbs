@@ -4,7 +4,7 @@
     {{fa-icon "chevron-right" tagName="span" size="lg"}}
   </span>
   <ul class="list-group-submenu">
-    <li class="list-group-submenu-item danger">{{fa-icon "times" tagName="span"}}</li>
     <li class="list-group-submenu-item success">{{fa-icon "check" tagName="span"}}</li>
+    <li class="list-group-submenu-item danger" {{action "removePackage" item}}>{{fa-icon "times" tagName="span"}}</li>
   </ul> <!-- /submenu -->
 </div> <!-- /list-group-item -->
