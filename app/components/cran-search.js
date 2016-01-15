@@ -51,5 +51,16 @@ export default Ember.Component.extend({
       this.set('currentPkg', selected);
       this.get('cart').add(selected.name);
     }
+      update(selected) {
+        this.get('cart').check(selected.name)
+          .then((result) => {
+            if (result) {
+              alert(`Warning: ${selected.name} is already installed!`)
+            } else {
+              this.set('currentPkg', selected);
+              this.get('cart').add(selected.name);
+            }
+          });
+      }
   }
 });
