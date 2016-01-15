@@ -5,5 +5,10 @@ export default Ember.Route.extend({
 
   model() {
     return this.get('cart').get('packagesToAdd');
+  },
+  actions: {
+    empty() {
+      this.get('cart').empty();
+    }
   }
 });

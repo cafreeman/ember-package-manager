@@ -3,6 +3,9 @@
     {{cran-search packageList=model}}
   </div>
   <div class="col-md-6">
+    {{#bs-button type="primary" action="empty"}}
+      Clear Packages
+    {{/bs-button}}
     <div class="list-group package-cart-list">
       {{#each model as |pkg|}}
         {{package-cart-item item=pkg}}
