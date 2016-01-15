@@ -21,36 +21,32 @@ export default Ember.Component.extend({
     // elasticSearch, but this seems to working fine so far.
     const url = `http://seer.r-pkg.org:9200/_search?q=_id:${query}*`;
     return $.getJSON(url)
-    .then((json) => {
-      // pull out the `hits` array of search matches and map over them to return a more compact
-      // object for each result.
-      let results = json.hits.hits;
-      resolve(results.map((pkg) => {
-        return {
-          name: pkg._id,
-          title: pkg._source.Title
-        };
-      }));
-    }, (err) => {
-      reject(err);
-    });
+      .then((json) => {
+        // pull out the `hits` array of search matches and map over them to return a more compact
+        // object for each result.
+        let results = json.hits.hits;
+        resolve(results.map((pkg) => {
+          return {
+            name: pkg._id,
+            title: pkg._source.Title
+          };
+        }));
+      }, (err) => {
+        reject(err);
+      });
   },
   actions: {
     // searchCRAN is the `search` action called from `power-select` and wraps the `debounce` method
     // in a RSVP.Promise so we can prevent an ajax request from being trigged on every keypress
     searchCRAN(query) {
-      return new Ember.RSVP.Promise((resolve, reject) => {
-        Ember.run.debounce(this, this._performCRANSearch, query, resolve, reject, 500);
-      });
-    },
-    // update is the `onchange` action called from `power-select` and has two responsibilities:
+        return new Ember.RSVP.Promise((resolve, reject) => {
+          Ember.run.debounce(this, this._performCRANSearch, query, resolve, reject, 500);
+        });
+      },
+      // update is the `onchange` action called from `power-select` and has two responsibilities:
       // 1. puts the selected search result in the top level of the search box
       // 2. adds the result to the `package-cart` service store, thereby instantiating an instance
-        // of the `package-cart-item` component
-    update(selected) {
-      this.set('currentPkg', selected);
-      this.get('cart').add(selected.name);
-    }
+      // of the `package-cart-item` component
       update(selected) {
         this.get('cart').check(selected.name)
           .then((result) => {

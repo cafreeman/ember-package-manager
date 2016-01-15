@@ -38,7 +38,7 @@ export default Ember.Service.extend({
     // 3. Use the parsed object to create a new instance of the Package model
     // 4. Push the new instance into Firebase using the Model.save() method
     // 5. Handle success/error
-  pushToServer() {
-
-  }
+  // pushToServer(pkg) {
+  //
+  // }
 });
