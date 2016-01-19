@@ -59,7 +59,15 @@ export default Ember.Service.extend({
     // 3. Use the parsed object to create a new instance of the Package model
     // 4. Push the new instance into Firebase using the Model.save() method
     // 5. Handle success/error
-  // pushToServer(pkg) {
-  //
-  // }
+  pushToServer() {
+    let packages = this.get('packagesToAdd');
+    packages.forEach(pkg => {
+      // get CRAN info and return a new instance of Package
+      this.getPkgInfo(pkg)
+        // Persist to Firebase
+        .then(record => record.save())
+        // Remove the package from the cart service
+        .then(() => this.remove(pkg));
+    });
+  }
 });
