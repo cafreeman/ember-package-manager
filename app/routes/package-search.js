@@ -9,6 +9,9 @@ export default Ember.Route.extend({
   actions: {
     empty() {
       this.get('cart').empty();
+    },
+    submitAll() {
+      this.get('cart').pushToServer();
     }
   }
 });

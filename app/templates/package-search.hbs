@@ -3,14 +3,29 @@
     {{cran-search packageList=model}}
   </div>
   <div class="col-md-6">
-    {{#bs-button type="primary" action="empty"}}
-      Clear Packages
-    {{/bs-button}}
-    <div class="list-group package-cart-list">
-      {{#each model as |pkg|}}
-        {{package-cart-item item=pkg}}
-      {{/each}}
-    </div> <!-- /list-group -->
-    {{!-- {{outlet}} --}}
+    {{#if model}}
+      {{!-- If there are records in the model, then render the block of list components --}}
+      <div class="list-group package-cart-list">
+        {{#each model as |pkg|}}
+          {{package-cart-item item=pkg}}
+        {{/each}}
+      </div>
+      <!-- /list-group -->
+    {{else}}
+      {{!-- If the model is empty, then show a panel telling the user to search for packages --}}
+      <div class="panel panel-default">
+        <div class="panel-body text-center">
+          <h4>Use the search box on the left to add some packages!</h4>
+        </div>
+      </div>
+    {{/if}}
+    <div class="btn-toolbar pull-right">
+      {{#bs-button type="danger" action="empty" }}
+        Clear Packages
+      {{/bs-button}}
+      {{#bs-button type="success" action="submitAll" }}
+        Add Packages
+      {{/bs-button}}
+    </div>
   </div>
 </div>
