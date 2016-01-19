@@ -31,6 +31,28 @@ export default Ember.Service.extend({
     this.get('packagesToAdd').clear();
   },
 
+  // issues a GET request to the cranDB API for a specific package and uses the JSON result to
+  // create a new instance of the Package model with store.createRecord.
+  // (currently) returns the record to the calling controller
+  // TO DO: Handle failed requests gracefully
+  // TO DO: Remove the package from the cart service on successful model.save()
+  getPkgInfo(pkg) {
+    let cranURL = `https://crandb.r-pkg.org/${pkg}`
+    return $.getJSON(cranURL)
+      .then((result) => {
+        let newRecord = this.get('store').createRecord('package', {
+          name: result.Package,
+          version: result.Version,
+          title: result.Title,
+          description: result.Description,
+          publicationDate: new Date(result["Date/Publication"].split('-')),
+          lastUpdated: new Date()
+        });
+        console.log(newRecord);
+        return newRecord;
+      });
+  },
+
   // push the packages in the store to the backend and persist them. not sure yet how much of this
   // process we should handle in the service, but the basic process should be as follows:
     // 1. Take a package name and query cran-DB to get all the package info

@@ -14,6 +14,9 @@ export default Ember.Component.extend({
     },
     checkPackage(pkg) {
       this.get('cart').check(pkg);
+    },
+    addPackage(pkg) {
+      this.get('cart').getPkgInfo(pkg).then(record => record.save());
     }
   }
 });
