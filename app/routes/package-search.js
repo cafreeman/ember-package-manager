@@ -4,7 +4,7 @@ export default Ember.Route.extend({
   cart: Ember.inject.service('package-cart'),
 
   model() {
-    return this.get('cart').get('packagesToAdd');
+    return this.get('cart.packagesToAdd');
   },
   actions: {
     empty() {

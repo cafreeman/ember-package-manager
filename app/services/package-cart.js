@@ -37,7 +37,7 @@ export default Ember.Service.extend({
   // TO DO: Handle failed requests gracefully
   // TO DO: Remove the package from the cart service on successful model.save()
   getPkgInfo(pkg) {
-    let cranURL = `https://crandb.r-pkg.org/${pkg}`
+    let cranURL = `https://crandb.r-pkg.org/${pkg}`;
     return $.getJSON(cranURL)
       .then((result) => {
         let newRecord = this.get('store').createRecord('package', {
@@ -48,7 +48,6 @@ export default Ember.Service.extend({
           publicationDate: new Date(result["Date/Publication"].split('-')),
           lastUpdated: new Date()
         });
-        console.log(newRecord);
         return newRecord;
       });
   },
