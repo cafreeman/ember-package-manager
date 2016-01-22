@@ -1,4 +1,5 @@
 import Ember from 'ember';
+const {$} = Ember;
 
 export default Ember.Component.extend({
   cart: Ember.inject.service('package-cart'),
@@ -51,7 +52,7 @@ export default Ember.Component.extend({
         this.get('cart').check(selected.name)
           .then((result) => {
             if (result) {
-              alert(`Warning: ${selected.name} is already installed!`)
+              alert(`Warning: ${selected.name} is already installed!`);
             } else {
               this.set('currentPkg', selected);
               this.get('cart').add(selected.name);
