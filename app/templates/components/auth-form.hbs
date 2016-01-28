@@ -1,0 +1,19 @@
+<h3>Please Login, or <a href="#" {{action "toggleSignUpForm"}}>Sign Up</a></h3>
+<div class="row">
+  {{#unless signUpForm}}
+    {{#bs-form action="login"}}
+      {{bs-form-element controlType="email" label="Email" property="email"}}
+      {{bs-form-element controlType="password" label="Password" property="password"}}
+      {{bs-button defaultText="Login" type="primary" buttonType="submit"}}
+    {{/bs-form}}
+  {{else}}
+    {{#bs-form action="signUp"}}
+      {{bs-form-element controlType="text" label="First Name" property="firstName"}}
+      {{bs-form-element controlType="text" label="Last Name" property="lastName"}}
+      {{bs-form-element controlType="email" label="Email" property="email"}}
+      {{bs-form-element controlType="password" label="Password" property="password"}}
+      {{bs-form-element controlType="password" label="Confirm Password" property="confirmPassword"}}
+      {{bs-button defaultText="Sign Up" type="primary" buttonType="submit"}}
+    {{/bs-form}}
+  {{/unless}}
+</div>
