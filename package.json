@@ -41,6 +41,7 @@
     "ember-lodash": "0.0.6",
     "ember-moment": "4.2.1",
     "ember-power-select": "0.7.2",
-    "emberfire": "1.6.3"
+    "emberfire": "1.6.3",
+    "torii": "0.6.1"
   }
 }
