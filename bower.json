@@ -17,8 +17,5 @@
     "moment-timezone": ">= 0.1.0",
     "font-awesome": "~4.4.0",
     "firebase": "^2.1.0"
-  },
-  "resolutions": {
-    "ember": "2.2.0"
   }
 }
