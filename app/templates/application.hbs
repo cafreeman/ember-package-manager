@@ -12,17 +12,20 @@
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li>{{link-to "Add A Package" "add-package"}}</li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          {{#link-to "package-search"}}
-            {{fa-icon "search" size="lg"}} Search for Packages
-          {{/link-to}}
-        </li>
-      </ul>
+    <div class="collapse navbar-collapse">
+      {{#if session.isAuthenticated}}
+        <ul class="nav navbar-nav">
+          <li>{{link-to "Add A Package" "add-package"}}</li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            {{#link-to "package-search"}}
+              {{fa-icon "search" size="lg"}} Search for Packages
+            {{/link-to}}
+          </li>
+          <li>{{bs-button class="navbar-btn" defaultText="Logout" type="primary" action="logOut"}}</li>
+        </ul>
+      {{/if}}
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
