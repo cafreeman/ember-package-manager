@@ -8,10 +8,18 @@ export default Ember.Component.extend({
       this.toggleProperty('signUpForm');
     },
     login() {
-      this.sendAction('on-submit', true);
+      let loginInfo = this.getProperties('email', 'password');
+      this.sendAction('on-submit', true, loginInfo);
     },
     signUp() {
-      this.sendAction('on-submit', false);
-    },
+      let signupInfo = this.getProperties(
+        'firstName',
+        'lastName',
+        'email',
+        'password',
+        'confirmPassword'
+      );
+      this.sendAction('on-submit', false, signupInfo);
+    }
   }
 });
