@@ -5,6 +5,9 @@ module.exports = function(environment) {
     modulePrefix: 'package-manager',
     environment: environment,
     firebase: 'https://alteryx-rpm.firebaseio.com/',
+    torii: {
+      sessionServiceName: 'session'
+    },
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {

@@ -7,12 +7,11 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('packages', function() {
-    this.route('pkg-info', {
-      path: ':id'
-    });
+    this.route('pkg-info', { path: ':id' });
   });
   this.route('add-package');
   this.route('package-search');
+  this.route('login');
 });
 
 export default Router;
