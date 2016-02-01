@@ -9,7 +9,7 @@ export default Ember.Component.extend({
     },
     login() {
       let loginInfo = this.getProperties('email', 'password');
-      this.sendAction('on-submit', true, loginInfo);
+      this.get('on-submit')(true, loginInfo);
     },
     signUp() {
       let signupInfo = this.getProperties(
@@ -19,7 +19,7 @@ export default Ember.Component.extend({
         'password',
         'confirmPassword'
       );
-      this.sendAction('on-submit', false, signupInfo);
+      this.get('on-submit')(false, signupInfo);
     }
   }
 });

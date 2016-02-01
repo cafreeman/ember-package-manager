@@ -2,7 +2,7 @@
   <div class="col-md-4"></div>
   <div class="col-md-4">
     <h3>Welcome to the R Package Manager!</h3>
-    {{auth-form on-submit="loginOrSignUp"}}
+    {{auth-form on-submit=(action "loginOrSignUp")}}
     {{#if isInvalidLogin}}
       <div class="alert alert-danger" role="alert">
         Invalid Password. Please try again.
