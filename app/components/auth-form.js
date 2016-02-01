@@ -1,8 +1,9 @@
 import Ember from 'ember';
 import EmberValidations from 'ember-validations';
 
-// export default Ember.Component.extend({
 export default Ember.Component.extend(EmberValidations, {
+  // signUpForm is a boolean that indicates whether the user is looking at the login form or the
+  // sign up form. Toggling this value updates which fields are rendered and validated in the form
   signUpForm: false,
 
   firstName: null,
@@ -36,7 +37,9 @@ export default Ember.Component.extend(EmberValidations, {
     password: {
       length: {
         minimum: 6,
-        message: 'Your password must be at least 6 characters.'
+        messages: {
+          tooShort: 'Your password must be at least 6 characters.'
+        }
       },
       confirmation: {
         'if': 'signUpForm',
