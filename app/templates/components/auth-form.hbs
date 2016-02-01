@@ -1,4 +1,8 @@
-<h3>Please Login, or <a href="#" {{action "toggleSignUpForm"}}>Sign Up</a></h3>
+{{#if signUpForm}}
+  <h3>Please <a href="#" {{action "toggleSignUpForm"}}>Login</a> or Sign Up</h3>
+{{else}}
+  <h3>Please Login or <a href="#" {{action "toggleSignUpForm"}}>Sign Up</a></h3>
+{{/if}}
 <div class="row">
   {{#unless signUpForm}}
     {{#bs-form model=this action="login"}}
