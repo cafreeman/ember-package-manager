@@ -1,4 +1,5 @@
 import Ember from 'ember';
+
 const {$} = Ember;
 
 export default Ember.Component.extend({
@@ -40,24 +41,24 @@ export default Ember.Component.extend({
     // searchCRAN is the `search` action called from `power-select` and wraps the `debounce` method
     // in a RSVP.Promise so we can prevent an ajax request from being trigged on every keypress
     searchCRAN(query) {
-        return new Ember.RSVP.Promise((resolve, reject) => {
-          Ember.run.debounce(this, this._performCRANSearch, query, resolve, reject, 500);
+      return new Ember.RSVP.Promise((resolve, reject) => {
+        Ember.run.debounce(this, this._performCRANSearch, query, resolve, reject, 500);
+      });
+    },
+    // update is the `onchange` action called from `power-select` and has two responsibilities:
+    // 1. puts the selected search result in the top level of the search box
+    // 2. adds the result to the `package-cart` service store, thereby instantiating an instance
+    // of the `package-cart-item` component
+    update(selected) {
+      this.get('cart').check(selected.name)
+        .then((result) => {
+          if (result) {
+            alert(`Warning: ${selected.name} is already installed!`);
+          } else {
+            this.set('currentPkg', selected);
+            this.get('cart').add(selected.name);
+          }
         });
-      },
-      // update is the `onchange` action called from `power-select` and has two responsibilities:
-      // 1. puts the selected search result in the top level of the search box
-      // 2. adds the result to the `package-cart` service store, thereby instantiating an instance
-      // of the `package-cart-item` component
-      update(selected) {
-        this.get('cart').check(selected.name)
-          .then((result) => {
-            if (result) {
-              alert(`Warning: ${selected.name} is already installed!`);
-            } else {
-              this.set('currentPkg', selected);
-              this.get('cart').add(selected.name);
-            }
-          });
-      }
+    }
   }
 });
