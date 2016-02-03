@@ -6,7 +6,7 @@ export default Ember.Service.extend({
   packagesToAdd: [],
 
   add(pkg) {
-    this.get('packagesToAdd').pushObject(pkg);
+    this.get('packagesToAdd').addObject(pkg);
   },
 
   remove(pkg) {
