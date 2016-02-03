@@ -4,11 +4,19 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
-    'ember-bootstrap': {
-      'importBootstrapTheme': true
+    sassOptions: {
+      includePaths: [
+        'bower_components/bootstrap-sass/assets/stylesheets',
+        'bower_components/bootswatch'
+      ]
     },
-    'ember-power-select': {
-      theme: 'bootstrap'
+    'ember-bootstrap': {
+      importBootstrapTheme: false,
+      importBootstrapCSS: false,
+      importBootstrapFont: false
+    },
+    'ember-cli-bootswatch': {
+      theme: 'superhero'
     }
   });
 
