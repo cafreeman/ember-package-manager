@@ -1,3 +1,4 @@
+@import "power-select-custom";
 @import "ember-power-select";
 
 .short-header {
@@ -5,8 +6,8 @@
 }
 .package-cart-list {
   overflow: hidden;
-  border-left: 1px solid rgb(221, 221, 221);
-  border-right: 1px solid rgb(221, 221, 221);
+  border-left: 1px transparent;
+  border-right: 1px transparent;
 }
 .package-cart-list-item:first-child, .package-cart-list-item:last-child {
   border-top-right-radius: 0px;
