@@ -1,0 +1,15 @@
+{{#link-to "packages.pkg-info" item.id class="list-group-item"}}
+  {{item.name}}
+  {{#unless item.isDeleted}}
+    {{fa-icon "trash-o" size="lg" pull="right" click=(action attrs.delete item.id)}}
+  {{else}}
+    <ul class="list-inline pull-right">
+      <li>
+        {{fa-icon "check" size="lg" click=(action attrs.confirm item.id)}}
+      </li>
+      <li>
+        {{fa-icon "times" size="lg" click=(action attrs.undo item.id)}}
+      </li>
+    </ul>
+  {{/unless}}
+{{/link-to}}
