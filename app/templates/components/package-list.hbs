@@ -6,8 +6,8 @@
 </div>
 <div class="list-group">
   {{#each filteredPkgs as |pkg|}}
-  {{#link-to "packages.pkg-info" pkg.id class="list-group-item"}}
-    {{pkg.name}}
-  {{/link-to}}
+    {{#link-to "packages.pkg-info" pkg.id class="list-group-item"}}
+      {{pkg.name}}
+    {{/link-to}}
   {{/each}}
 </div>
