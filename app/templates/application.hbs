@@ -25,6 +25,10 @@
           </li>
           <li>{{bs-button class="navbar-btn" defaultText="Logout" type="primary" action="logOut"}}</li>
         </ul>
+      {{else}}
+        <ul class="nav navbar-nav navbar-right">
+          <li>{{bs-button class="navbar-btn" defaultText="Login" type="primary" action="login"}}</li>
+        </ul>
       {{/if}}
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
