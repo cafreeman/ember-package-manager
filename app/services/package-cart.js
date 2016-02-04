@@ -65,9 +65,16 @@ export default Ember.Service.extend({
       // get CRAN info and return a new instance of Package
       this.getPkgInfo(pkg)
         // Persist to Firebase
-        .then(record => record.save())
-        // Remove the package from the cart service
-        .then(() => this.remove(pkg));
+        .then(record => record.save()
+          .then(
+            // If successful, remove the package from the cart service
+            () => this.remove(pkg),
+            // Else, log the error (for now)
+            (err) => {
+              console.log(err);
+            }
+          )
+        );
     });
   }
 });
