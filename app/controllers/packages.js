@@ -6,14 +6,12 @@ export default Ember.Controller.extend({
       this.transitionToRoute('packages.pkg-info', pkgId);
     },
     removePackage(pkgId) {
-      console.log(`deleting package with id: ${pkgId}`);
       this.store.findRecord('package', pkgId)
         .then(pkg => {
           pkg.deleteRecord();
         });
     },
     undoRemove(pkgId) {
-      console.log('Undoing remove');
       this.store.findRecord('package', pkgId)
         .then(pkg => {
           pkg.rollbackAttributes();
