@@ -45,7 +45,7 @@ export default Ember.Service.extend({
           version: result.Version,
           title: result.Title,
           description: result.Description,
-          publicationDate: new Date(result["Date/Publication"].split('-')),
+          publicationDate: new Date(result['Date/Publication'].split('-')),
           lastUpdated: new Date()
         });
         return newRecord;
