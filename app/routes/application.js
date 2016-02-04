@@ -10,6 +10,10 @@ export default Ember.Route.extend({
       this.get('session').close().then(() => {
         this.transitionTo('application');
       });
+    },
+
+    login() {
+      this.transitionTo('login');
     }
   }
 });

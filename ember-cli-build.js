@@ -12,7 +12,7 @@ module.exports = function(defaults) {
     },
     'ember-bootstrap': {
       importBootstrapTheme: false,
-      importBootstrapCSS: false,
+      importBootstrapCSS: true,
       importBootstrapFont: false
     },
     'ember-cli-bootswatch': {
