@@ -13,9 +13,9 @@ export default Ember.Controller.extend({
       email,
       password
     }).
-      then((success) => {
+      then(() => {
         this.transitionToRoute('packages');
-      }, (err) => {
+      }, () => {
         this.toggleProperty('isInvalidLogin');
       });
   },
