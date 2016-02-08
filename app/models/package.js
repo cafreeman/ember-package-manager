@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import MF from 'model-fragments';
 
 export default DS.Model.extend({
   name: DS.attr('string'),
@@ -6,7 +7,7 @@ export default DS.Model.extend({
   title: DS.attr('string'),
   description: DS.attr('string'),
   publicationDate: DS.attr('date'),
-  // depends: DS.attr(),
-  // imports: DS.attr(),
+  depends: MF.fragmentArray('dependency'),
+  imports: MF.fragmentArray('dependency'),
   lastUpdated: DS.attr('date')
 });
