@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import transformDependency from '../utils/transform-dependency';
 
 const { $ } = Ember;
 
@@ -48,6 +49,8 @@ export default Ember.Service.extend({
           title: result.Title,
           description: result.Description,
           publicationDate: new Date(result['Date/Publication'].split('-')),
+          depends: transformDependency(result.Depends),
+          imports: transformDependency(result.Imports),
           lastUpdated: new Date()
         });
         return newRecord;

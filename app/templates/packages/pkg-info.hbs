@@ -6,4 +6,22 @@
   <dd>{{removeUnicode model.description}}</dd>
   <dt>Publication Date</dt>
   <dd>{{moment-format model.publicationDate "MM/DD/YYYY"}}</dd>
+  <br>
+  <dt>
+    Depends:
+  </dt>
+  {{#each model.depends as |d|}}
+    <dd>
+      {{d.name}}: {{d.version}}
+    </dd>
+  {{/each}}
+  <br>
+  <dt>
+    Imports:
+  </dt>
+  {{#each model.imports as |i|}}
+    <dd>
+      {{i.name}}: {{i.version}}
+    </dd>
+  {{/each}}
 </dl>
