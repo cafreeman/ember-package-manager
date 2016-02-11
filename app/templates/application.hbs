@@ -15,6 +15,7 @@
     <div class="collapse navbar-collapse">
       {{#if session.isAuthenticated}}
         <ul class="nav navbar-nav navbar-right">
+          <li>{{link-to "Create A New Release" "create-release"}}</li>
           <li>
             {{#link-to "package-search"}}
               {{fa-icon "search" size="lg"}} Search for Packages

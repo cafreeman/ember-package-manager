@@ -11,6 +11,7 @@ Router.map(function() {
   });
   this.route('package-search');
   this.route('login');
+  this.route('create-release');
 });
 
 export default Router;

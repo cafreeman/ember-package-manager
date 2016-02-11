@@ -1,0 +1,7 @@
+{{#bs-form model=this action="onSubmit"}}
+  {{bs-form-element controlType="text" label="Title" placeholder="My shiny new release" value=title}}
+  {{bs-form-element controlType="textarea" label="Notes" placeholder="Notes about this release go here" value=notes}}
+  {{bs-form-element controlType="text" label="R Version" placeholder="3.x.x" value=rVersion}}
+  {{bs-form-element controlType="text" label="Alteryx Version" placeholder="11.0" value=alteryxVersion}}
+  {{bs-button defaultText="Create Release" type="primary" buttonType="submit"}}
+{{/bs-form}}
