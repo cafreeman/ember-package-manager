@@ -12,6 +12,7 @@ Router.map(function() {
   this.route('package-search');
   this.route('login');
   this.route('create-release');
+  this.route('releases');
 });
 
 export default Router;
